@@ -1,23 +1,17 @@
 ﻿using System;
+using System.Xml.Schema;
 
 namespace Klasser
 {
-    class Program
+    public class Uppgift_3 : Meny
     {
-        /// <summary>
-        /// Se instruktionenr i Uppgift.txt
-        /// </summary>
-        /// <param name="args"></param>
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-
-            Console.WriteLine("Hello World!");
+            Meny1();
+            CarProperties BMW = new CarProperties();
+            Console.Write($"Model: {BMW.Model}");
+            Console.ReadLine();
+            
         }
-    }
-
-    public class Bil
-    {
-        public string Registreringsnummer { get; set; }
-
     }
 }
