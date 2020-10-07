@@ -10,7 +10,7 @@ namespace Klasser
 
         public static List<Bil> bilar = new List<Bil>();
         
-        public static List<Bil> egnaBilar = new List<Bil>();
+       
         public string Namn { get; set; }
         public string Ålder { get; set; }
 

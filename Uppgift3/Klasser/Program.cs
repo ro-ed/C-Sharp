@@ -146,13 +146,14 @@ namespace Klasser
             }
                 // SKAPAR NY BIL
             var nyBil = new Bil();
+            nyBil.Ägare = _username;
             nyBil.BilMärkeInput = märke;
             nyBil._modellNamn = model;
             nyBil.ViktInput = vikt;
             nyBil.RegistreringsnummerInput = registreringsnummer;
             nyBil.ElbilInput = elbil;
             nyBil.Registrerades = DateTime.Now;    
-            Person.egnaBilar.Add(nyBil);
+            Person.bilar.Add(nyBil);
             bilar.Add(nyBil);
                 
                 //CarProperties new_car = new CarProperties();
@@ -170,7 +171,7 @@ namespace Klasser
                
 
 
-                foreach (Bil specifikBil in Person.egnaBilar)
+                foreach (Bil specifikBil in Person.bilar)
                 {
                     Console.WriteLine($"Bilmärke: {specifikBil.BilMärkeInput}");
                     Console.WriteLine($"Modell: {specifikBil._modellNamn}");

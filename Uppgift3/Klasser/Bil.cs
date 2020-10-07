@@ -14,8 +14,9 @@ namespace Klasser
         //public Dictionary<string, Bil> BilDataBas = new Dictionary<string, Bil>();
 
         public string _modellNamn;
-        private static decimal _milMätare;
-
+        public decimal _milMätare;
+        //public static decimal Milmätare { get; set; }
+        public string Ägare { get; set; }
         public  string BilMärkeInput { get; set; }      
         public  int ViktInput { get;  set; }
         public  string RegistreringsnummerInput { get; set; }
@@ -52,122 +53,40 @@ namespace Klasser
 
                 Console.Write("Ange regnummer på den bil du vill ändra milmätare på: ");
                 var ändraMätarBil = Console.ReadLine();
+                
 
-                foreach (var bil in Person.egnaBilar)
+                for (int i = 0; i < bilar.Count; i++)
                 {
-                    if (bil.RegistreringsnummerInput == ändraMätarBil && användare[personIndex].Namn == personNamn)
+                    if (bilar[i].Ägare == _username && bilar[i].RegistreringsnummerInput == ändraMätarBil)
                     {
-                        decimal mil = 0;
                         Console.Write("Ange antal mil du vill lägga till: ");
                         decimal milInput = Convert.ToDecimal(Console.ReadLine());
-
-
-                        if (milInput > mil)
+                        if (milInput < bilar[i]._milMätare)
                         {
-                            mil = milInput;
-                            _milMätare += mil;
-                            
-                        }
-                        else if (milInput < mil)
-                        {
+
                             Console.WriteLine("Miltalet du angav var mindre än det ursprungliga. Prova igen.");
                             Console.ReadLine();
+
                             ÄndraMilmätare();
                         }
+                        else
+                        {
+                            bilar[i]._milMätare += milInput;
+                        }
+
+                    }
+                }
                         Console.Clear();
                         MENU();
-                    }
-                    
-                }
                 
-                }
-            
+             
             }
-        public  string GetMil()
+            
+        }
+        public string GetMil()
         {
             return _milMätare.ToString();
         }
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //public void skapa(Bil nyBil)
-        //{
-        //    Console.Write("Ange bilmärke: ");
-        //    BilMärkeInput = Console.ReadLine();
-
-        //    Console.Write("Ange model: ");
-        //    ModelInput = Console.ReadLine();
-
-        //    Console.Write("Ange registreringsnummer: ");
-        //    RegistreringsnummerInput = Console.ReadLine();
-
-        //    Console.Write("Ange antal mil som bilen gått: ");
-        //    Milmätare = Convert.ToDecimal(Console.ReadLine());
-
-        //    Console.Write("Ange om det är en elbil: J/N ");
-        //    string boolSvar = Console.ReadLine();
-        //    if (boolSvar.ToLower() == "j")
-        //    {
-        //        ElbilInput = true;
-
-        //    }
-
-        //    Registrerades = DateTime.Now;
-
-
-        //    bilar.Add(nyBil);
-
-        //}
-        //public static List<Bil> Get_List()
-        //{
-        //    return bilar;
-        //}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
-
-
+    }     
+}
+       
