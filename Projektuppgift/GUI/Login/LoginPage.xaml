@@ -4,36 +4,30 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GUI.Login"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      d:DesignHeight="350" d:DesignWidth="500"
-      Title="Bosses bilverkstad - Login">
+      d:DesignHeight="600" d:DesignWidth="400"
+      Foreground="Black" Background="#FFFF5500">
 
-    <Grid Margin="10,0,10,10">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+    <Grid Visibility="Visible">
+            <StackPanel Margin="50">
+                <Image Source="/Assets/Verkstad.png" Height="240" Width="300" ScrollViewer.VerticalScrollBarVisibility="Hidden" Stretch="UniformToFill"/>
+                <Border Background="White" Margin="0 -5" CornerRadius="5">
+                    <StackPanel Margin="25">
+                        <TextBox x:Name="tbUsername" Margin="15" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Username">
 
-        <Label Grid.Row="0" Grid.Column="0">Login</Label>
+                        </TextBox>
+                        <PasswordBox x:Name="pbPassword" Margin="15" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" materialDesign:HintAssist.Hint="Password">
 
-        <Border Grid.Column="0" Grid.Row="1" Height="35" Padding="5" Background="#4E87D4">
-            <Label VerticalAlignment="Center" Foreground="White">Användarnamn:</Label>
-        </Border>
-        
-        <TextBox x:Name="tbUsernam" Grid.Row="1" Grid.Column="1"></TextBox>
-        
-        <Border Grid.Column="0" Grid.Row="2" Height="35" Padding="5" Background="#4E87D4">
-            <Label VerticalAlignment="Center" Foreground="White">Lösenord:</Label>
-        </Border>
-        <PasswordBox x:Name="pbPassword" Grid.Row="2" Grid.Column="1"></PasswordBox>
+                        </PasswordBox>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button x:Name="closeButton" Margin="15 50"  Content="CLOSE" Click="Close_Button"/>
+                            <Button x:Name="signInButton" Margin="15 50" Content="SIGN IN" Click="SignIn_Button"/>
+                        </StackPanel>
+                    </StackPanel>
 
-        <Button x:Name="btnConfirm" Grid.Column="1" Grid.Row="3" Margin="0,10,0,0" Width="125"
-Height="25" HorizontalAlignment="Right" Content="Logga in" Click="Button_Click"></Button>        
-    </Grid>
+                </Border>
+            </StackPanel>
+        </Grid>
+    
 </Page>

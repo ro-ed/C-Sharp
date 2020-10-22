@@ -14,12 +14,11 @@ using System.Windows.Shapes;
 namespace GUI.Home
 {
     /// <summary>
-    /// Interaction logic for HomePage.xaml
+    /// Interaction logic for MekanikernasHemsida.xaml
     /// </summary>
-    public partial class HomePage : Page
+    public partial class MekanikernasHemsida : Page
     {
-        
-        public HomePage()
+        public MekanikernasHemsida()
         {
             InitializeComponent();
         }

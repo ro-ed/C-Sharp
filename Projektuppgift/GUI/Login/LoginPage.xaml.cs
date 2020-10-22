@@ -1,5 +1,6 @@
 ﻿using GUI.Home;
 using Logic.Services;
+using Microsoft.Windows.Themes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 
 namespace GUI.Login
 {
@@ -28,11 +30,12 @@ namespace GUI.Login
             InitializeComponent();
 
             _loginService = new LoginService();
+            ShowsNavigationUI = false;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void SignIn_Button(object sender, RoutedEventArgs e)
         {
-            string username = this.tbUsernam.Text;
+            string username = this.tbUsername.Text;
             string password = this.pbPassword.Password;
 
             bool successful = _loginService.Login(username, password);
@@ -48,9 +51,16 @@ namespace GUI.Login
             {
 
                 MessageBox.Show(_errorMsg);
-                this.tbUsernam.Clear();
+                this.tbUsername.Clear();
                 this.pbPassword.Clear();
             }
+            
         }
+        private void Close_Button(object sender, RoutedEventArgs e)
+        {
+            
+        }
+        
+
     }
 }
